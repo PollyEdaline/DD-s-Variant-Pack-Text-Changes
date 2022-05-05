@@ -103,17 +103,17 @@ Sprite.load("Fae", path.."Select", 18, 2, 0), -- The Selection sprite.
 Color.fromHex(0xE6FFEC)) -- The color of the skin in the selection menu, can be left "nil" to use the survivor's default color.
 local skinName = "F.A.E."
 	SurvivorVariant.setInfoStats(Fae, {{"Strength", 3}, {"Whimsy", 8}, {"Mobility", 8}, {"Morality",3}, {"Unhinged", 9}, {"Chaos", 11}})
-	SurvivorVariant.setDescription(Fae, "The F.A.E. Unit is a untested prototype reforestation unit with mysterious capabilities, take care of it's ability to passively grow plants around itself, as it has been observed moving while deactivated.")
+	SurvivorVariant.setDescription(Fae, "The &y&F.A.E.&!& Unit is a untested prototype reforestation unit. We aren't entirely sure what all it can do. It seems like it can grow plants around itself, even when it's deactivated.")
 		
-	Fae.endingQuote = "..and so it left, seeking new worlds to share it's freedoms."
+	Fae.endingQuote = "..and so it left, seeking new worlds to share its freedoms with."
 local sprSkills = Sprite.load("FaeSkills", path.."Skill", 3, 0, 0)
 
 	SurvivorVariant.setLoadoutSkill(Fae, "Playful Wisp",
-	"Toss a bouncing flare, dealing &y&60% damage.&!& Hits ground for &y&30% damage&!&.", sprSkills,1)
+	"Toss a bouncing flare, dealing &y&100% damage&!&. Hits the ground for &y&20% damage&!&.", sprSkills,1)
 	SurvivorVariant.setLoadoutSkill(Fae, "Return to Midnight",
-		"Dive forwards, and execute enemies under 30% hp, growing &g&Healing Shrubs&!&" , sprSkills, 2)
+		"Dive forwards, dealing &y&110% damage&!&. Enemies under 30% HP turn into &g&Healing Shrubs&!& that passively heal around them." , sprSkills, 2)
 	SurvivorVariant.setLoadoutSkill(Fae, "Dancing Plague",
-		"Dive down and slam into the ground for &y&200% damage&!&, spreading &r&mists&!& that &b&confuses&!& enemies. &r&Detonates Shrubs&!&, further spreading effects.", sprSkills, 3)
+		"Slam into the ground for &y&220% damage&!&, spreading &b&mist that confuses enemies&!&. &r&Detonates Healing Shrubs&!&, further spreading effects.", sprSkills, 3)
 
 
 
@@ -128,17 +128,17 @@ callback.register("onSkinInit", function(player, skin)
 		
 		player:setSkill(1,
 		"Playful Wisp",
-		"Toss a bouncing flare, dealing 60% damage. On contact with ground, deal an extra 30% damage, scaling with height.",
+		"Toss a bouncing flare, dealing 100% damage. Hits the ground for 20% damage.",
 		sprSkills, 1,  15)
 		
 		player:setSkill(2,
 		"Return to Midnight",
-		"Dive forwards, dealing 80% damage to enemies. Turns enemies under 33% Health into Shrubs that passively heal." ,
+		"Dive forwards, dealing 110% damage. Enemies under 30% HP turn into Healing Shrubs that passively heal around them.",
 		sprSkills, 2,  10* 60)
 		
 		player:setSkill(3,
 		"Dancing Plague",
-		"Dive down and slam into the ground for 200% damage, spreading mists that confuses enemies. Detonates Shrubs, further spreading effects.",
+		"Slam into the ground for 220% damage, spreading mist that confuses enemies. Detonates Healing Shrubs, further spreading effects.",
 		sprSkills, 3,  7* 60)
 		
 		player:getData().skin_onActivity = false
