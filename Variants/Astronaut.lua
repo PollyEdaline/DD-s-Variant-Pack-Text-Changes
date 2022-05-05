@@ -42,23 +42,20 @@ local beat = Sound.find("SamuraiShoot1")
 local skillC = Sound.load("holdSFX", path.."skillC")
 
 
-SurvivorVariant.setDescription(Astro, "The &b&Astronaut&!& is an Aerial fighter that, while frail, utilizes careful management of &b&Fuel&!& to unleash devastating near-endless combo's of damage from above, while stockpiling fuel with 'Ignition', and carefully resetting cooldowns with 'From Above'!") 
-Astro.endingQuote = "..and so she left, lost within the Stars once more."
+SurvivorVariant.setDescription(Astro, "The &b&Astronaut&!& is a frail, aerial fighter that utilizes careful management of &b&Fuel&!& to unleash devastating near-endless combos of damage from above. Stockpile &b&Fuel&!& with &y&Ignition&!&, and soar into the stars with &y&Gravity Well&!&!") 
+Astro.endingQuote = "..and so she left, lost within the stars once more."
 
 SurvivorVariant.setLoadoutSkill(Astro, "Ignition" ,
-		"Shoot a condensed blast of energy for &y&130% Damage&!&, shoots faster with &b&Fuel.&!&",
+		"Shoot a condensed blast of energy for &y&130% damage&!&. Restores &b&Fuel&!& on hit.",
 sprSkills,1)
 SurvivorVariant.setLoadoutSkill(Astro, "Condensed Avionics", 
-"As long as you have &b&Fuel&!&, freely Dash, for up to &y&4x70% Damage&!&.", 
+		"Dash in any direction for up to &y&4x70% damage&!&. Dash downwards to slam the ground, &y&increasing damage based on height&!&.", 
 sprSkills,2)
-
-
 SurvivorVariant.setLoadoutSkill(Astro,"From Above" ,
-		"Slam downwards, &b&on contact with enemies&!&, Spin upwards, dealing up to &y&6x65% Damage.&!&",
+		"Slam down from the air. When you hit the ground, spin upwards, dealing up to &y&6x65% damage&!&. Restores &b&Fuel&!& on hit.",
 sprSkills,3)
-
 SurvivorVariant.setLoadoutSkill(Astro, "Gravity Well" ,
-		"Summons a &b&drone&!& that creates a Vacuum which &!&absorbs enemies&!&. Upon expiring, slams for &y&600% Damage&!&. Grants &b&free Flight&!& instead of Hover", sprSkills,4)
+		"Summon a Vacuum Drone that absorbs enemies with a gravity well. When it expires, it slams down for &y&600% damage&!&.", sprSkills,4)
 		
 SurvivorVariant.setInfoStats(Astro, {{"Strength", 8}, {"Vitality", 4}, {"Claustrophobia", 7}, {"Agility", 8}, {"Difficulty", 6}, {"Patience", 0}}) 
 
@@ -91,19 +88,19 @@ callback.register("onSkinInit", function(player, skin)
 		player:getData().air = 0
 		player:setSkill(1,
 		"Ignition" ,
-		"Restores fuel on Hit. Shoot a condensed blast of energy for 150% Damage, shoots faster with Fuel.",
+		"Shoot a condensed blast of energy for 130% damage. Restores and shoots faster with Fuel.",
 		sprSkills, 1, 65)
 		player:setSkill(2,
 		"Condensed Avionics" ,
-		"Dash in any direction, for up to 4x70 Damage, as long as you have Fuel. Dash downwards to slam to the ground, increasing Damage based on height.",
+		"Dash in any direction for up to 4x70% damage, as long as you have Fuel. Dash downwards to slam the ground, increasing damage based on height.",
 		sprSkills, 2, 5*60)
 		player:setSkill(3,
 		"From Above" ,
-		"Restores fuel on hit. When in the air, slam downards. on contact with the ground, Spin upwards, dealing up to 6x100 Damage.",
+		"Slam down from the air. When you hit the ground, spin upwards, dealing up to 6x65% damage. Restores Fuel on hit.",
 		sprSkills, 3, 9*60)
 				player:setSkill(4,
 		"Gravity Well" ,
-		"Summons a drone that creates a Vacuum which absorbs enemies. Upon expiring, slams for 600% Damage.",
+		"Summon a Vacuum Drone that absorbs enemies with a gravity well. When it expires, it slams down for 600% damage.",
 		sprSkills, 4, 20*60)
 	end
 end)
@@ -170,7 +167,7 @@ survivor:addCallback("scepter", function(player)
 	if SurvivorVariant.getActive(player) == Astro then
 		player:setSkill(4,
 		"Gravity Field" ,
-		"Summons three drones that create a Vacuum which absorbs enemies. Upon expiring, they slam for 600% Damage.",
+		"Summon three Vacuum Drones that absorb enemies with gravity wells. When they expires, they slams down for &y&600% damage&!& each.",
 		sprSkills, 5, 20*60)
 	end
 end)
