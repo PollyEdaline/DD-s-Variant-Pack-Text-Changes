@@ -53,7 +53,7 @@ local shoot4_1b = Sprite.load("shoot4_1b", path.."shoot4aIdle", 1, 6, 6)
 local shoot4_1c = Sprite.load("shoot4_1c", path.."shoot4aWalk", 8, 5, 5)
 local shoot4_1d = Sprite.load("shoot4_1d", path.."shoot4aJump", 1, 6, 6)
 
-SurvivorVariant.setLoadoutSkill(Courier, "Exhaust", "Eject a piercing, super-heated burst of plasma from your battery for &y&350% damage. Needs to be &b&manually recharged&!&.", sprSkills,1)
+SurvivorVariant.setLoadoutSkill(Courier, "Exhaust", "Eject a piercing, super-heated burst of plasma from your battery for &y&425% damage. Needs to be &b&manually recharged&!&.", sprSkills,1)
 SurvivorVariant.setLoadoutSkill(Courier, "Expedited Shipping", "Ignite and toss your battery, exploding for &y&65% damage on impact&!&. Leaves a slowing field that &y&ignites for 300% damage&!&. &y&Recharging&!& resets the cooldown.", sprSkills,4)
 SurvivorVariant.setLoadoutSkill(Courier, "Plasmacycle", "Teleport your trusty plasmacycle to you. &b&Increases movement speed&!&, and allows you to &b&drive up walls&!&. Activate again to &y&leap off the plasmacycle&!&.", sprSkills,6)
 SurvivorVariant.setLoadoutSkill(Courier, "Plasma Barrage", "Weaponize the thrust from your plasmacycle, launching a barrage of plasma shots for &y&4x600% damage.", sprSkills,7)
@@ -95,7 +95,7 @@ callback.register("onSkinInit", function(player, skin)
 		--skills
 		player:setSkill(1,
 		"Exhaust",
-		"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
+		"Eject a piercing, super-heated burst of plasma from your battery for 425% damage. Needs to be manually recharged.",
 		sprSkills, 1, 30)
 		
 		player:setSkill(2,
@@ -561,7 +561,7 @@ SurvivorVariant.setSkill(Courier, 1, function(player)
 			player:getData().reloading = false
 			player:setSkill(1,
 			"Exhaust",
-			"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
+			"Eject a piercing, super-heated burst of plasma from your battery for 425% damage. Needs to be manually recharged.",
 			sprSkills, 1, 30)
 		end
 	end
@@ -604,7 +604,7 @@ callback.register("onSkinSkill", function(player, skill, relevantFrame)
 					playerData.reloading = true
 					player:setSkill(1,
 						"Cooldown",
-						"Cool and Recharge the batery.",
+						"Cool the battery down.",
 						sprSkills, 2, 30)
 					for i = 0, playerAc.sp do --Toss Crate
 						local bullet = objCase:create(player.x, player.y)
@@ -831,7 +831,7 @@ callback.register("onSkinSkill", function(player, skill, relevantFrame)
 					
 					player:setSkill(1,
 					"Exhaust",
-					"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
+					"Eject a piercing, super-heated burst of plasma from your battery for 425% damage. Needs to be manually recharged.",
 					sprSkills, 1, 30)
 					player:setSkill(2,
 					"Expedited Shipping",
