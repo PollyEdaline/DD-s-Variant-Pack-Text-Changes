@@ -53,15 +53,15 @@ local shoot4_1b = Sprite.load("shoot4_1b", path.."shoot4aIdle", 1, 6, 6)
 local shoot4_1c = Sprite.load("shoot4_1c", path.."shoot4aWalk", 8, 5, 5)
 local shoot4_1d = Sprite.load("shoot4_1d", path.."shoot4aJump", 1, 6, 6)
 
-SurvivorVariant.setLoadoutSkill(Courier, "Exhaust", "Eject a piercing, super-heated burst of plasma from your batery for &y&350% Damage. Must Recharge.", sprSkills,1)
-SurvivorVariant.setLoadoutSkill(Courier, "Expedited Shipping", "Ignite and toss your batery, exploding for &y&65% Damage on impact.&!& Leaves a &y&Slowing field that Ignites.&!&&y&Reloading&!& resets cooldown. ", sprSkills,4)
-SurvivorVariant.setLoadoutSkill(Courier, "Active Relocation/ HeelKick", "Summons your Trusty Motorcycle, increasing your movement speed and changing the fucntion of Skills. Dismounting launches the vehicle forwards.", sprSkills,6)
-SurvivorVariant.setLoadoutSkill(Courier, "Plasma Barrage", "Weaponize the thrust from your Motorcyle and launch a barrage of plasma shots for &y&4x600% Damage.", sprSkills,7)
+SurvivorVariant.setLoadoutSkill(Courier, "Exhaust", "Eject a piercing, super-heated burst of plasma from your battery for &y&350% damage. Needs to be &b&manually recharged&!&.", sprSkills,1)
+SurvivorVariant.setLoadoutSkill(Courier, "Expedited Shipping", "Ignite and toss your battery, exploding for &y&65% damage on impact&!&. Leaves a slowing field that &y&ignites for 300% damage&!&. &y&Recharging&!& resets the cooldown.", sprSkills,4)
+SurvivorVariant.setLoadoutSkill(Courier, "Plasmacycle", "Teleport your trusty plasmacycle to you. &b&Increases movement speed&!&, and allows you to &b&drive up walls&!&. Activate again to &y&leap off the plasmacycle&!&.", sprSkills,6)
+SurvivorVariant.setLoadoutSkill(Courier, "Plasma Barrage", "Weaponize the thrust from your plasmacycle, launching a barrage of plasma shots for &y&4x600% damage.", sprSkills,7)
 
 SurvivorVariant.setInfoStats(Courier, {{"Speed", 10}, {"Reliability", 8}, {"Mobility", 9}, {"Heat", 7}, {"Recklessness", 8}, {"Height", 2}}) 
-SurvivorVariant.setDescription(Courier, "The Courier is a mobile survivor that thrives on the Black Market. Might be on the shorter end, but her Skills are Unparalelled.")
+SurvivorVariant.setDescription(Courier, "The &y&Courier&!& is a mobile survivor that thrives on the black market. Her &y&Plasmacycle&!& can be used for offense, ejecting plasma when she fires. She may be on the shorter end, but her skills are unparalelled.")
 
-Courier.endingQuote = "..and so she left, Delivery still ahead of schedule."
+Courier.endingQuote = "..and so she left, delivery still ahead of schedule."
 callback.register("onSkinInit", function(player, skin) 
 	if skin == Courier then
 		local playerData = player:getData()
@@ -95,17 +95,17 @@ callback.register("onSkinInit", function(player, skin)
 		--skills
 		player:setSkill(1,
 		"Exhaust",
-		"Eject a piercing, super-heated burst of plasma from your batery for 350% Damage. Must Recharge.",
+		"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
 		sprSkills, 1, 30)
 		
 		player:setSkill(2,
 		"Expedited Shipping",
-		"Ignite and toss your batery, exploding for 65% Damage on impact. Leaves a Slowing field of plasma Ignites for 300% Damage over time.",
+		"Ignite and toss your battery, exploding for 65% damage on impact. Leaves a slowing field that ignites for 300% damage. Recharging resets the cooldown.",
 		sprSkills, 4,  6* 60)
 		
 		player:setSkill(4,
 		"Plasma Barrage",
-		"Weaponize the thrust from your Motorcyle and launch a barrage of plasma shots for 4x600% damage.",
+		"Weaponize the thrust from your plasmacycle, launching a barrage of plasma shots for 4x600% damage.",
 		sprSkills, 7,  8* 60)
 	end
 end)
@@ -539,7 +539,7 @@ survivor:addCallback("scepter", function(player)--when you get the scepter
 	if SurvivorVariant.getActive(player) == Courier then
 		player:setSkill(4,
 		"Daredevil",
-		"Launch a barrage of 8x600% plasma shots, amount fired scales with Scepter stacks and can be canceled.",
+		"Weaponize the thrust from your plasmacycle, launching a barrage of plasma shots for 8x600% damage.",
 		sprSkills, 9,  7* 60)
 	end
 end)
@@ -553,7 +553,7 @@ SurvivorVariant.setSkill(Courier, 1, function(player)
 						
 			player:setSkill(1,
 				"Cooldown",
-				"Cool and Recharge the batery.",
+				"Cool the battery down.",
 				sprSkills, 2, 30)
 		else
 			player:setAnimation("shoot1", player:getAnimation("shoot1_1B"))
@@ -561,7 +561,7 @@ SurvivorVariant.setSkill(Courier, 1, function(player)
 			player:getData().reloading = false
 			player:setSkill(1,
 			"Exhaust",
-			"Eject a piercing, super-heated burst of plasma from your batery for 350% Damage. Must Recharge.",
+			"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
 			sprSkills, 1, 30)
 		end
 	end
@@ -831,14 +831,14 @@ callback.register("onSkinSkill", function(player, skill, relevantFrame)
 					
 					player:setSkill(1,
 					"Exhaust",
-					"Eject a piercing, super-heated burst of plasma from your batery for 350% Damage. Must Recharge.",
+					"Eject a piercing, super-heated burst of plasma from your battery for 350% damage. Needs to be manually recharged.",
 					sprSkills, 1, 30)
 					player:setSkill(2,
 					"Expedited Shipping",
-					"Ignite and toss your batery, exploding for 65% Damage on impact. Leaves a Slowing field of plasma Ignites for 300% Damage over time.",
+					"Ignite and toss your battery, exploding for 65% damage on impact. Leaves a slowing field that ignites for 300% damage. Recharging resets the cooldown.",
 					sprSkills, 4,  5* 60)
 
-					player:setSkill(3, "Active Relocation", "Summon a personal vehicle, increasing your movement speed.",
+					player:setSkill(3, "Plasmacycle", "Teleport your trusty plasmacycle to you. Increases movement speed, and allows you to drive up walls. Activate again to leap off the plasmacycle.",
 					sprSkills, 6, 60)
 				else
 					
@@ -858,13 +858,13 @@ callback.register("onSkinSkill", function(player, skill, relevantFrame)
 						playerAc.canrope = 0
 						playerAc.walk_speed_coeff = 0.4 * (1.7 / playerMdata._SpeedBoost)
 						
-						player:setSkill(1, "Burning Drift", "Weaponize your bike's momentum, dammaging with the rear wheel for 2x75% Damage",
+						player:setSkill(1, "Burning Drift", "Weaponize the plasmacycle's momentum, slamming enemies with the rear wheel for 2x75% damage.",
 						sprSkills, 3, 5)
 						
-						player:setSkill(2, "Burnout", "Anchor the Motorcycle into the ground, building up speed and Damage, for up to 5*300 Damage",
+						player:setSkill(2, "Burnout", "Anchor the plasmacycle to the ground and charge up speed. Release to charge forward for up to 5x300% damage.",
 						sprSkills, 5, 5*50)
 						
-						player:setSkill(3, "Heelclick", "Exit the Motorcycle, launching it forwards for 110% dmg. Can act semi-independantly.",
+						player:setSkill(3, "Heelclick", "Leap off the plasmacycle, launching it forward for 110% damage.",
 						sprSkills, 8, 5 * 60)
 					end
 				end
