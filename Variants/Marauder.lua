@@ -68,9 +68,9 @@ Sprite.load("MarauderSelect", path.."Select", 16, 2, 0),
 		
 }, Color.fromHex(0xFC4E45))
 	SurvivorVariant.setInfoStats(Marauder, {{"Strength", 8}, {"Vitality", 8}, {"Mobility", 7}, {"Valor",9}, {"Difficulty", 6}, {"Wisdom", 1}})
-	SurvivorVariant.setDescription(Marauder, "The Marauder is a relentless, reckless fighter;Armed with his gunblade he is capable of dealing massive bursts of damage at close range with &y&Cressent Edge&!& and &y*Burst Break&!&, and making distance with &y&Sonic Shock&!&.")
+	SurvivorVariant.setDescription(Marauder, "The Marauder is a relentless, reckless fighter. Armed with a gunblade, he is capable of dealing massive bursts of damage at close range with &y&Crescent Edge&!& and &y&Burst Break&!&, and closing distance with &y&Sonic Shock&!&.")
 		
-	Marauder.endingQuote = "..and so he left, arms forever trembling form recoil."
+	Marauder.endingQuote = "..and so he left, arms forever trembling from recoil."
 	local skillC = Sound.load("chargedSFX", path.."skillC")
 	local sShoot2 = Sound.load("MarauderShoot1", path.."Shoot2")
 	local bigBoom = Sound.find("ExplosiveShot")
@@ -83,10 +83,10 @@ Sprite.load("MarauderSelect", path.."Select", 16, 2, 0),
 	local sprSparks = Sprite.find("Sparks9r")
 	local sprSkills = Sprite.load("MarauderSkill", path.."Skill", 6, 0, 0)
 	
-	SurvivorVariant.setLoadoutSkill(Marauder, "Cressent Edge", "3 stage Combo, Slash forwards for &y&120% Damage&!&. &r&Land the third hit to gain 1 Ammunition&!&.", sprSkills,1)
-	SurvivorVariant.setLoadoutSkill(Marauder, "Burst Break", "Shoot a projectile, if it lands: Explode for &y&175% damage&!&.", sprSkills, 2)
-	SurvivorVariant.setLoadoutSkill(Marauder, "Savage Dive", "Dash forwards for &y&120% damage&!&. Getting hit grants invulnerability and &b&Overcharges&!& Burst Break.", sprSkills, 3)
-	SurvivorVariant.setLoadoutSkill(Marauder, "Sonic Shock", "Blast the floor for &y&250% damage&!&, and taking off to the air.", sprSkills, 4)
+	SurvivorVariant.setLoadoutSkill(Marauder, "Crescent Edge", "Slash a gunblade for &y&120% damage&!&. &r&Land the third hit of the combo to gain 1 Ammunition&!&.", sprSkills,1)
+	SurvivorVariant.setLoadoutSkill(Marauder, "Burst Break", "Shoot a projectile that explodes for &y&175% damage&!&. &r&Requires Ammunition&!&.", sprSkills, 2)
+	SurvivorVariant.setLoadoutSkill(Marauder, "Savage Dive", "Dash forward for &y&120% damage&!&. Getting hit grants invulnerability and &b&overcharges&!& &y&Burst Break&!&.", sprSkills, 3)
+	SurvivorVariant.setLoadoutSkill(Marauder, "Sonic Shock", "Fire your gunblade into the ground for &y&250% damage&!&. The recoil &b&sends you upwards&!&.", sprSkills, 4)
 	
 	callback.register("onSkinInit", function(player, skin)
 		if skin == Marauder then
@@ -112,19 +112,19 @@ Sprite.load("MarauderSelect", path.."Select", 16, 2, 0),
 
 			player:survivorSetInitialStats(125, 12, 0.02)
 			player:setSkill(1,
-			"Cressent Edge", "3 stage Combo, Slash forwards for 120% Damage. Land the third hit to gain 1 Ammunition.",
+			"Crescent Edge", "Slash a gunblade for 120% damage. Land the third hit of the combo to gain 1 Ammunition",
 			sprSkills, 1, 15)
 			
 			player:setSkill(2,
-			"Burst Break", "Shoot a projectile, if it lands: Explode for 175% damage.",
+			"Burst Break", "Shoot a projectile that explodes for 175% damage. Requires Ammunition.",
 			sprSkills, 2, 15 * 60)
 			
 			player:setSkill(3,
-			"Savage Dive", "Dash forwards for 120% damage. Getting hit grants invulnerability and Overcharges Burst Break.",
+			"Savage Dive", "Dash forward for 120% damage. Getting hit grants invulnerability and overcharges Burst Break.",
 			sprSkills, 4, 6 * 60)
 			
 			player:setSkill(4,
-			"Sonic Shock", "Blast the floor for 250% damage , and taking off to the air.",
+			"Sonic Shock", "Fire your gunblade into the ground for 250% damage. The recoil sends you upwards.",
 			sprSkills, 5, 7 * 60)
 		end
 	end)
@@ -132,7 +132,7 @@ Sprite.load("MarauderSelect", path.."Select", 16, 2, 0),
 survivor:addCallback("scepter", function(player)--when you get the scepter
 	if SurvivorVariant.getActive(player) == Marauder then
 		player:setSkill(4,
-		"Azure Sonic Shock", "Blast the floor for 3x150% damage , and taking off to the air.",
+		"Azure Sonic Shock", "Fire your gunblade into the ground for 3x150% damage. The recoil sends you upwards.",
 			sprSkills, 6, 7 * 60)
 	end
 end)
@@ -174,11 +174,11 @@ end)
 			end
 			if playerData.overCharge > 0 then
 			player:setSkill(2,
-			"Azure Burst Break", "Shoot a projectile, if it lands: Explode for 3x125% damage.",
+			"Azure Burst Break", "Shoot a projectile that explodes for 3x175% damage. Requires Ammunition.",
 			sprSkills, 3, 15 * 60)
 			else
 			player:setSkill(2,
-			"Burst Break", "Shoot a projectile, if it lands: Explode for 125% damage.",
+			"Burst Break", "Shoot a projectile that explodes for 175% damage. Requires Ammunition.",
 			sprSkills, 2, 15 * 60)
 			end
 			if playerData.MarauderCounter then
