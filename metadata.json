@@ -1,0 +1,15 @@
+{
+    "name": "DD's Variant Pack",
+	"version": "1.4.1",
+    "description": "Adds a selection of eight different character variants for Starstorm! Featuring: Runt, an Acrid variant, and Machinist, a Huntress variant!",
+	"internalname": "DDPACK",
+    "author": "DegarDale",
+	"mpcompat": true,
+	"dependencies": [
+		{
+			"name": "Starstorm",
+			"version": "1.12.0-b",
+			"optional": false
+		}
+	]
+}
